@@ -26,9 +26,6 @@ on:
       HOSTMETRICSID:
         description: 'Host metrics build run id'
         required: true 
-      BUNDLESID:
-        description: 'Bundles  build run id'
-        required: true 
         
   workflow_run:
     workflows: "Create Artifacts and pass runid"
