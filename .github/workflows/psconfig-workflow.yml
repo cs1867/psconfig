@@ -23,8 +23,11 @@ on:
       PERLSHAREDID:
         description: 'Perl Shared build run id'
         required: true
-      ELMONDID:
-        description: 'Elmond Shared build run id'
+      HOSTMETRICSID:
+        description: 'Host metrics build run id'
+        required: true 
+      BUNDLESID:
+        description: 'Bundles  build run id'
         required: true 
         
   workflow_run:
@@ -78,7 +81,8 @@ jobs:
                 OWAMPID: '${{ github.event.inputs.OWAMPID }}',
                 PSCHEDULERID: '${{ github.event.inputs.PSCHEDULERID }}',
                 PERLSHAREID: '${{ github.event.inputs.PERLSHAREDID }}',
-                ELMONDID: '${{ github.event.inputs.ELMONDID }}',
+                HOSTMETRICSID: '${{ github.event.inputs.HOSTMETRICSID }}',
+                BUNDLESID: '${{ github.event.inputs.BUNDLESID }}',
                 PSCONFIG: '${{ github.run_id }}'
               }
               })
