@@ -3,7 +3,7 @@
 name: psconfig-workflow
   
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
     inputs:  
       OS: 
         description: 'OS to build'
@@ -29,7 +29,7 @@ on:
         
   workflow_run:
     workflows: "Create Artifacts and pass runid"
-    branches: 'github-docker'
+    branches: 'github-workflow'
     types:
       - completed
 
@@ -43,7 +43,7 @@ jobs:
         - name: Check out Repo
           uses: actions/checkout@v4
           with:
-           ref: 5.1.0
+           ref: 5.2.0
           
         - name: Create a temporary artifact downloads folder
           run: mkdir aritfacts
