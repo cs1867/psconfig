@@ -45,8 +45,14 @@ jobs:
           with:
            ref: 5.2.0
           
-        - name: Create a temporary artifact downloads folder
-          run: mkdir aritfacts
+        - name: Download minor packages artifacts 
+          uses: actions/download-artifact@v4
+          with:
+             name: minor-packages-'${{ github.event.inputs.OS }}'
+             repository: cs1867/minor-packages
+             path: artifacts
+             github-token: ${{ secrets.GIT_ACTIONS }}
+             run-id: '${{ github.event.inputs.MINORPACKAGEID }}'
 
         - name: run docker oneshot builder
           run: |
