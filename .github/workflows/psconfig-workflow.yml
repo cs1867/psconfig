@@ -94,8 +94,8 @@ jobs:
                 I2UTILID: '${{ github.event.inputs.I2UTILID }}',
                 OWAMPID: '${{ github.event.inputs.OWAMPID }}',
                 PSCHEDULERID: '${{ github.event.inputs.PSCHEDULERID }}',
-                PERLSHAREID: '${{ github.event.inputs.PERLSHAREDID }}',
+                PERLSHAREDID: '${{ github.event.inputs.PERLSHAREDID }}',
                 HOSTMETRICSID: '${{ github.event.inputs.HOSTMETRICSID }}',
-                PSCONFIG: '${{ github.run_id }}'
+                PSCONFIGID: '${{ github.run_id }}'
               }
               })
