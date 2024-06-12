@@ -49,20 +49,20 @@ jobs:
         - name: Download minor packages artifacts 
           uses: actions/download-artifact@v4
           with:
-             name: minor-packages-'${{ github.event.inputs.OS }}'
+             name: minor-packages-${{ github.event.inputs.OS }}
              repository: cs1867/minor-packages
              path: artifacts
              github-token: ${{ secrets.GIT_ACTIONS }}
-             run-id: '${{ github.event.inputs.MINORPACKAGEID }}'
+             run-id: ${{ github.event.inputs.MINORPACKAGEID }}
 
         - name: Download pscheduler artifacts 
           uses: actions/download-artifact@v4
           with:
-             name: pscheduler-'${{ github.event.inputs.OS }}'
-             repository: cs1867/minor-pscheduler
+             name: pscheduler-${{ github.event.inputs.OS }}
+             repository: cs1867/pscheduler
              path: artifacts
              github-token: ${{ secrets.GIT_ACTIONS }}
-             run-id: '${{ github.event.inputs.MINORPACKAGEID }}'
+             run-id: ${{ github.event.inputs.PSCHEDULERID }}
         
 
         - name: run docker oneshot builder
