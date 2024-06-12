@@ -3,6 +3,8 @@
 name: psconfig-workflow
   
 on:
+  push: 
+    branches: [ 'github-workflow' ] 
   workflow_dispatch: 
     inputs:  
       OS: 
@@ -48,7 +50,7 @@ jobs:
         - name: Download minor packages artifacts 
           uses: actions/download-artifact@v4
           with:
-             name: minor-packages-'${{ github.event.inputs.OS }}'
+             name: minor-packages-ol8
              repository: cs1867/minor-packages
              path: artifacts
              github-token: ${{ secrets.GIT_ACTIONS }}
@@ -56,7 +58,7 @@ jobs:
 
         - name: run docker oneshot builder
           run: |
-           curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github-workflow.sh . '${{ github.event.inputs.OS }}'  
+           curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github-workflow.sh .  ol8  
         
         - uses: actions/upload-artifact@v3
           with:
