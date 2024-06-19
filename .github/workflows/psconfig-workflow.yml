@@ -70,7 +70,12 @@ jobs:
         - name: run docker oneshot builder
           run: |
            curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github-workflow.sh . '${{ github.event.inputs.OS }}'  
-
+        
+        - uses: actions/upload-artifact@v3
+          with:
+            name: ${{ github.event.repository.name }}-${{ github.event.inputs.OS }}
+            path: unibuild-repo
+            retention-days: 5
         - name: Delete current repo from build
           id: modify_json
           run: |
