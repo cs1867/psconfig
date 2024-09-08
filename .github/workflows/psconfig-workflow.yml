@@ -2,7 +2,7 @@ name: psconfig-workflow
 
 on:
 
-  workflow_dispatch:
+  workflow_dispatch: 
     inputs:
       BUILD_BRANCH:
         description: 'Branch to build'
