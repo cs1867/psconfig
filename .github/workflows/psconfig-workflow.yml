@@ -71,7 +71,7 @@ jobs:
                  sed -i '/minor-packages/d' deps.txt
             ;;
             *)
-                echo "No specific packages to remove for ${github.event.inputs.OS}"
+                echo "No specific packages to remove"
             ;;
             esac
             echo "Dependencies:"
