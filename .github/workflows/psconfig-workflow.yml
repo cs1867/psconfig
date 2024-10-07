@@ -51,7 +51,7 @@ jobs:
           run: |
             git clone https://github.com/cs1867/project.git project
             if [ "${{ github.event.inputs.OS }}" == 'ol8' ] || [ "${{ github.event.inputs.OS }}" == 'el9' ]; then
-              cp project/toolbox/workflows/github-workflow-el-skip-install.sh . 
+              cp project/toolbox/workflows/github-el-workflow.sh . 
               elif [ "${{ github.event.inputs.OS }}" == 'd11' ] || [ "${{ github.event.inputs.OS }}" == 'd12' ]; then
               cp project/toolbox/workflows/github-db-workflow.sh . 
               elif [ "${{ github.event.inputs.OS }}" == 'u20' ] || [ "${{ github.event.inputs.OS }}" == 'u24' ]; then
