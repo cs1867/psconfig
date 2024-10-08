@@ -67,7 +67,7 @@ jobs:
           id: extract_deps
           run: |
             echo "$BUILD_VARS_JSON" | jq -r '.repos[] | select(.name == "${{ github.event.repository.name }}") | .deps[]' > deps.txt
-            case  "${{ github.event.inputs.OS }}" in
+            case  "${{ env.BUILD_OS }}" in
               'u20'|'u24')
                  sed -i '/minor-packages/d' deps.txt
               ;;
