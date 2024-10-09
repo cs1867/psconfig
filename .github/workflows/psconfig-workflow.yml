@@ -85,7 +85,7 @@ jobs:
               echo "Downloading artifact for $repo"
               run_id=$(echo "$BUILD_VARS_JSON" | jq -r ".buildids | .[\"$repo\"]")
               echo "rund id $run_id"
-              gh run download $run_id --repo cs1867/$repo -D artifacts/$repo --name "$repo-${{ github.event.inputs.OS }}"  
+              gh run download $run_id --repo cs1867/$repo -D artifacts/$repo --name "$repo-${{ env.BUILD_OS  }}"  
               artifact_path="artifacts/$repo"
               pwd
               echo "list artifact path"
@@ -199,6 +199,6 @@ jobs:
               workflow_id: '${{ env.NEXTREPO}}-workflow.yml',
               ref: 'github-workflow',
                inputs: {
-              BUILD_VARS_JSON: '${{ env.BUILD_VARS_JSON}}'
+                BUILD_VARS_JSON: '${{ env.BUILD_VARS_JSON}}'
               }
               })
