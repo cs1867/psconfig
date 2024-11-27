@@ -59,7 +59,7 @@ jobs:
                  cp project/toolbox/workflows/github-el-workflow.sh .
                  ;;
               'd11'|'d12'|'u20'|'u24')
-                cp project/toolbox/workflows/github-db-workflow.sh .
+                cp project/toolbox/workflows/github_u20_workflow.sh .
                 ;;
             esac
 
@@ -87,7 +87,6 @@ jobs:
               echo "rund id $run_id"
               gh run download $run_id --repo cs1867/$repo -D artifacts/$repo --name "$repo-${{ env.BUILD_OS  }}"  
               artifact_path="artifacts/$repo"
-              pwd
               echo "list artifact path"
               ls -al "$artifact_path"
               case "${{ env.BUILD_OS }}" in
@@ -97,11 +96,9 @@ jobs:
                   cp "$artifact_path"/RPMS/*.rpm artifacts/RPMS
                  ;;
                 'd11'|'d12'|'u20'|'u24')                
-                  mkdir -p artifacts/DEBS
-                  echo "copy to the artifacts DEBS dir"
-                  cp -r "$artifact_path"/* artifacts/DEBS
-                  echo "list artifacts DEBS dir"
-                  ls -al artifacts/DEBS/*
+                  echo "Listing artifact path:"
+                  pwd
+                  ls -al "$artifact_path"
                   ;;
               esac
             done < deps.txt
@@ -115,7 +112,7 @@ jobs:
                    curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github-el-workflow.sh . '${{ env.BUILD_OS }}'  
                 ;;
                 'd11'|'d12'|'u20'|'u24')                
-                  curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github-db-workflow.sh . '${{ env.BUILD_OS }}'
+                  curl -s https://raw.githubusercontent.com/perfsonar/docker-oneshot-builder/main/build | sh -s - --run github_u20_workflow.sh . '${{ env.BUILD_OS }}'
                 ;;
               esac
 
