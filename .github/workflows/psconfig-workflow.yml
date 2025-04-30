@@ -145,14 +145,6 @@ jobs:
             NEXTREPO=$(echo  "$BUILD_VARS_JSON"  | jq -r '.repos[0].name' )
             echo "NEXTREPO=$NEXTREPO" >> $GITHUB_ENV
 
-        - name: Display NEXTREPO value
-          run: echo "The value of NEXTREPO is $NEXTREPO"
-        - uses: actions/upload-artifact@v4
-          with:
-            name: ${{ github.event.repository.name }}-${{ github.event.inputs.OS }}
-            path: unibuild-repo
-            retention-days: 5
-
         - name: Add GitHub run ID to buildids
           id: add_run_id
           run: |
