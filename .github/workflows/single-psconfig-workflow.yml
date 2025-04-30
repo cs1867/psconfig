@@ -16,7 +16,7 @@ jobs:
       - name: Check out Repo
         uses: actions/checkout@v4
         with:
-          ref: 5.2.0
+          ref: '5.2.0'
 
       # Fetch workflow script from projects
       - name: Fetch workflow script from projects
